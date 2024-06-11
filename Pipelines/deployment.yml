@@ -1,0 +1,33 @@
+﻿trigger: none
+lockBehavior: runLatest
+
+parameters:
+- name: Environments
+  type: object
+  default:
+  - Name: TestEnv
+    DependsOn:
+    Branch: main
+
+pool:
+  vmImage: windows-latest
+
+resources:
+  repositories:
+  - repository: M365DSC_CICD
+    type: git
+    name: M365DSC_CICD\M365DSC_CICD
+    ref: refs/heads/main
+  pipelines:
+  - pipeline: M365Automation
+    source: M365DSC Build MOF
+    branch: main
+    trigger:
+      branches:
+        include:
+        - main
+
+extends:
+  template: ./Pipelines/deploy-template.yaml@M365DSC_CICD
+  parameters:
+    Environments: ${{ parameters.Environments }}
