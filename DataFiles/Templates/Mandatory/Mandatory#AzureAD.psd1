@@ -1,0 +1,5 @@
+﻿@{
+    NonNodeData = @{
+        AzureAD = @{}
+    }
+}

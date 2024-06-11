@@ -1,0 +1,14 @@
+﻿trigger: none
+
+pool:
+  vmImage: windows-latest
+
+resources:
+  repositories:
+  - repository: M365DSC_CICD
+    type: git
+    name: M365DSC_CICD/M365DSC_CICD
+    ref: refs/heads/main
+
+extends:
+  template: .\Pipelines\prvalidation-template.yaml@M365DSC_CICD

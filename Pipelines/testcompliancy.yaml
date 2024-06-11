@@ -1,0 +1,22 @@
+﻿trigger: none
+
+# schedules:
+# - cron: "0 0,6,12,18 * * *"
+#   displayName: "Scheduled Compliance Test"
+#   branches:
+#     include:
+#     - main
+#   always: true
+
+pool:
+  vmImage: windows-latest
+
+resources:
+  repositories:
+  - repository: M365DSC_CICD
+    type: git
+    name: M365DSC_CICD/M365DSC_CICD
+    ref: refs/heads/main
+
+extends:
+  template: .\Pipelines\testcompliancy-template.yaml@M365DSC_CICD
