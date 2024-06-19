@@ -1,4 +1,4 @@
-﻿$rootFolder = "C:\src\M365DSC_Data-DO\DataFiles"
+﻿$rootFolder = Split-Path -Path $PSScriptRoot -Parent
 $envFolder = Join-Path -Path $rootFolder -ChildPath 'Environments'
 $templateFolder = Join-Path -Path $rootFolder -ChildPath "Templates\EnvironmentTemplate"
 

@@ -2,100 +2,101 @@
     AllNodes    = @(
         @{
             NodeName        = 'localhost'
-            CertificateFile = '.\DSCCertificate.cer'
+            CertificateFile = '.\DSCEncryptionCert.cer'           # The file name of the encryption certificate
+            CertThumbprint  = '<EncryptionCertificateThumbprint>' # The thumbprint of the encryption certificate (should be in $encryptionCertThumb)
         }
     )
     NonNodeData = @{
         Environment    = @{
-            Name             = '{{Tenant_Name}}'
-            ShortName        = '{{Tenant_ShortName}}'
-            TenantId         = '{{TenantId}}'
-            OrganizationName = '{{Tenant_Name}}'
+            Name             = '{{Tenant_Name}}'      # Environment name
+            ShortName        = '{{Tenant_ShortName}}' # Environment short name
+            TenantId         = '{{TenantId}}'         # The name of the tenant that belongs to the given environment
+            OrganizationName = '{{Tenant_Name}}'      # The same as TenantId
             UsedWorkloads    = @{
-                AzureAD            = $true
-                Exchange           = $true
-                Intune             = $true
-                Office365          = $true
-                OneDrive           = $true
-                Planner            = $true
-                PowerPlatform      = $true
-                SecurityCompliance = $true
-                SharePoint         = $true
-                Teams              = $true
+                AzureAD            = $true            # Specifies if this workload is used in the configuration
+                Exchange           = $true            # Specifies if this workload is used in the configuration
+                Intune             = $true            # Specifies if this workload is used in the configuration
+                Office365          = $true            # Specifies if this workload is used in the configuration
+                OneDrive           = $true            # Specifies if this workload is used in the configuration
+                Planner            = $true            # Specifies if this workload is used in the configuration
+                PowerPlatform      = $true            # Specifies if this workload is used in the configuration
+                SecurityCompliance = $true            # Specifies if this workload is used in the configuration
+                SharePoint         = $true            # Specifies if this workload is used in the configuration
+                Teams              = $true            # Specifies if this workload is used in the configuration
             }
             CICD             = @{
-                DependsOn     = ''
-                UseCodeBranch = 'main'
+                DependsOn     = ''                           # Specifies the name of the environment that this environment depends on during deployment. Leave empty when dependency does not exist
+                UseCodeBranch = 'main'                       # Specifies the code branch that should be used for the deployment (not used in the current version of the solution)
                 Approvers     = @(
                     @{
-                        Principal = 'test.user@domain.com'
-                        Type      = 'User'
+                        Principal = 'test.user@domain.com'   # UPN of the entity that should approve the deployment
+                        Type      = 'User'                   # The provided principal is an user
                     }
                     @{
-                        Principal = 'test.group@domain.com'
-                        Type      = 'Group'
+                        Principal = 'test.group@domain.com'  # UPN of the entity that should approve the deployment
+                        Type      = 'Group'                  # The provided principal is an user
                     }
                 )
             }
             Tokens           = @{
-                TenantGuid       = '3788f651-cd16-4482-b823-05c62208bc4b' #{{TenantGuid}}
-                Tenant_ShortName = 'TST' #{{Tenant_ShortName}}
-                Tenant_Name      = 'TestEnv' #{{Tenant_Name}}
+                TenantGuid       = '3788f651-cd16-4482-b823-05c62208bc4b' # {{TenantGuid}}
+                Tenant_ShortName = 'TST'                                  # {{Tenant_ShortName}}
+                Tenant_Name      = 'TestEnv'                              # {{Tenant_Name}}
 
-                Forest_Code      = 'TST' #{{Forest_Code}}
-                TenantId         = 'testenv.onmicrosoft.com' #{{TenantId}}
+                Forest_Code      = 'TST'                                  # {{Forest_Code}}
+                TenantId         = 'testenv.onmicrosoft.com'              # {{TenantId}}
             }
         }
         AppCredentials = @(
             @{
                 Workload       = 'AzureAD'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'Exchange'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'Intune'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'Office365'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'OneDrive'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'Planner'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'PowerPlatform'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'SecurityCompliance'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'SharePoint'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
                 Workload       = 'Teams'
-                ApplicationId  = '6f071d50-a442-4ef1-b241-6a7752915227'
-                CertThumbprint = 'DF2E5A319EB5CEF233964275B519810C9393FD05'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
         )
     }
