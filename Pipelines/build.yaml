@@ -7,10 +7,6 @@
     include:
     - DataFiles**/*
 
-
-#variables:
-#- template: variables.yaml
-
 pool:
   vmImage: windows-latest
 

@@ -19,8 +19,8 @@ resources:
     name: M365DSC_CICD\M365DSC_CICD
     ref: refs/heads/main
   pipelines:
-  - pipeline: M365Automation
-    source: M365DSC Build MOF
+  - pipeline: Build MOF
+    source: Build MOF
     branch: main
     trigger:
       branches:

@@ -1,15 +1,19 @@
-﻿# Microsoft 365 Automation Demo using Microsoft365Dsc
+﻿# Microsoft 365 Automation using Microsoft365Dsc and Azure DevOps
 
-For more info, checkout [this whitepaper](https://aka.ms/m365dscwhitepaper).
+This repository is used in combination with the CICD Framework, which you can find [here](https://github.com/ykuijs/M365DSC_CICD).
 
-This is the repository for the Configuration Data Files. During a deployment, it is cloning the CICD Framework repository to retrieve the framework logic.
-The template for this repository is found [here](https://github.com/ykuijs/M365DSC_Data).
+Together they make up the solution with which you are able to implement automated management of Microsoft 365 using [Microsoft365Dsc](https://microsoft365.com) and [Azure DevOps](https://dev.azure.com). The required steps, prerequisites and all needed information can be found in [this whitepaper](https://aka.ms/m365dscwhitepaper).
+
+This is [the repository](https://github.com/ykuijs/M365DSC_Data) for the Configuration Data Files. During a deployment, it is cloning the CICD Framework repository to retrieve the framework logic. The repository for the CICD Framework can be found [here](https://github.com/ykuijs/M365DSC_CICD).
+
+> [!NOTE]
+> To track issues in one place, please add any issues you find for this repo to the issue list in the [CICD Framework issue list]](https://github.com/ykuijs/M365DSC_CICD/issues).
 
 # Changelog
 
 - v3.0 (2024-06-01) - Implemented a new framework
   - Separate Data and Scripts Azure DevOps projects
-    - The solution is split into two different projects: Scripts and Data files. 
+    - The solution is split into two different projects: Scripts and Data files.
     - This means that you can grant Microsoft 365 administrators access to the Data project, making sure they cannot change any of the scripts to deploy the changes.
   - Multiple levels of data files: Basic (Generic) and Tenant specific
     - In the current version of the whitepaper, each tenant has its own data files. So, if you have multiple tenants and want to update a setting on each tenant, you have to update all data files.
@@ -38,7 +42,7 @@ The template for this repository is found [here](https://github.com/ykuijs/M365D
     - Improvements to that module are now automatically available to everyone
     - You can add new features and fix bug by submitting a pull requests
   - Improved troubleshooting information
-    - We have updated our logging function, which outputs better information. 
+    - We have updated our logging function, which outputs better information.
     - We have added as much troubleshooting information in the scripts to make troubleshooting issues easier.
     - Since we are merging data files, we are also including a copy of the merged data in the pipeline artifacts. Both a tokenized and non-tokenized version.
 - v2.0 (2022-11-08) - Major overhaul of the scripts
