@@ -11,7 +11,7 @@ This is [the repository](https://github.com/ykuijs/M365DSC_Data) for the Configu
 
 # Changelog
 
-- v3.0 (2024-06-01) - Implemented a new framework
+- v3.0 (2024-10-22) - Implemented a new framework
   - Separate Data and Scripts Azure DevOps projects
     - The solution is split into two different projects: Scripts and Data files.
     - This means that you can grant Microsoft 365 administrators access to the Data project, making sure they cannot change any of the scripts to deploy the changes.
@@ -50,3 +50,15 @@ This is [the repository](https://github.com/ykuijs/M365DSC_Data) for the Configu
   - More robust deployment scripts
   - A DSC Compliancy script
 - v1.0 (2020-11-01) - Scripts that belong to the first version of the whitepaper
+
+# Links
+
+- M365DSCTools: Generic tools/functions that are used by the solution.
+  - [GitHub](https://github.com/ykuijs/M365DSCTools)
+  - [PowerShell Gallery](https://www.powershellgallery.com/packages/M365DSCTools)
+- M365DSC.CRG: Code that is used by the M365DSC.CompositeResources module to generate the the Composite Resources module based on Microsoft365DSC.
+  - [GitHub](https://github.com/ykuijs/M365DSC.CRG)
+  - [PowerShell Gallery](https://www.powershellgallery.com/packages/M365DSC.CRG)
+- M365DSC.CompositeResources: Project that is generating new versions of the M365DSC.CompositeResources module and publishing it to the PowerShell Gallery.
+  - [GitHub](https://github.com/ykuijs/M365DSC.CompositeResources)
+  - [PowerShell Gallery](https://www.powershellgallery.com/packages/M365DSC.CompositeResources)
