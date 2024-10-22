@@ -13,14 +13,19 @@
             TenantId         = '{{TenantId}}'         # The name of the tenant that belongs to the given environment
             OrganizationName = '{{Tenant_Name}}'      # The same as TenantId
             UsedWorkloads    = @{
+                Azure              = $true            # Specifies if this workload is used in the configuration
                 AzureAD            = $true            # Specifies if this workload is used in the configuration
+                AzureDevOps        = $true            # Specifies if this workload is used in the configuration
+                Defender           = $true            # Specifies if this workload is used in the configuration
                 Exchange           = $true            # Specifies if this workload is used in the configuration
+                Fabric             = $true            # Specifies if this workload is used in the configuration
                 Intune             = $true            # Specifies if this workload is used in the configuration
                 Office365          = $true            # Specifies if this workload is used in the configuration
                 OneDrive           = $true            # Specifies if this workload is used in the configuration
                 Planner            = $true            # Specifies if this workload is used in the configuration
                 PowerPlatform      = $true            # Specifies if this workload is used in the configuration
                 SecurityCompliance = $true            # Specifies if this workload is used in the configuration
+                Sentinel           = $true            # Specifies if this workload is used in the configuration
                 SharePoint         = $true            # Specifies if this workload is used in the configuration
                 Teams              = $true            # Specifies if this workload is used in the configuration
             }
@@ -49,12 +54,32 @@
         }
         AppCredentials = @(
             @{
+                Workload       = 'Azure'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
+            }
+            @{
                 Workload       = 'AzureAD'
                 ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
                 CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
             @{
+                Workload       = 'AzureDevOps'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
+            }
+            @{
+                Workload       = 'Defender'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
+            }
+            @{
                 Workload       = 'Exchange'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
+            }
+            @{
+                Workload       = 'Fabric'
                 ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
                 CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
@@ -85,6 +110,11 @@
             }
             @{
                 Workload       = 'SecurityCompliance'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
+            }
+            @{
+                Workload       = 'Sentinel'
                 ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
                 CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }

@@ -1,7 +1,6 @@
 ﻿@{
     NonNodeData = @{
         Teams          = @{
-
         }
     }
 }
