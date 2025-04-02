@@ -1,6 +1,6 @@
 ﻿@{
     NonNodeData = @{
-        Teams = @{
+        ServicesHub = @{
         }
     }
 }
