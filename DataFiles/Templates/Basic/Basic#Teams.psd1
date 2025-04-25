@@ -1,9 +1,9 @@
 ﻿@{
     NonNodeData = @{
-        Teams              = @{
-            AppPermissionPolicies            = @(
+        Teams = @{
+            AppPermissionPolicy              = @(
                 @{
-                    DefaultCatalogApps     =  @()
+                    DefaultCatalogApps     = @()
                     DefaultCatalogAppsType = 'BlockedAppList'
                     Ensure                 = 'Present'
                     GlobalCatalogApps      = @()
@@ -13,7 +13,7 @@
                     PrivateCatalogAppsType = 'AllowedAppList'
                 }
             )
-            AppSetupPolicies                 = @(
+            AppSetupPolicy                   = @(
                 @{
                     AllowSideLoading = $False
                     AllowUserPinning = $True
@@ -27,7 +27,7 @@
                     Identity         = 'FirstLineWorker'
                 }
             )
-            AudioConferencingPolicies        = @(
+            AudioConferencingPolicy          = @(
                 @{
                     AllowTollFreeDialin       = $True
                     Ensure                    = 'Present'
@@ -35,13 +35,13 @@
                     MeetingInvitePhoneNumbers = @()
                 }
             )
-            CallHoldPolicies                 = @(
+            CallHoldPolicy                   = @(
                 @{
                     Ensure   = 'Present'
                     Identity = 'Global'
                 }
             )
-            ChannelsPolicies                 = @(
+            ChannelsPolicy                   = @(
                 @{
                     AllowChannelSharingToExternalUser             = $True
                     AllowOrgWideTeamCreation                      = $True
@@ -78,7 +78,7 @@
                 ContentPin                       = 'RequiredOutsideScheduleMeeting'
                 ResourceAccountContentAccess     = 'NoAccess'
             }
-            ComplianceRecordingPolicies      = @(
+            ComplianceRecordingPolicy        = @(
                 @{
                     ComplianceRecordingApplications                     = @()
                     DisableComplianceRecordingAudioNotificationForCalls = $False
@@ -88,7 +88,7 @@
                     WarnUserOnRemoval                                   = $True
                 }
             )
-            CortanaPolicies                  = @(
+            CortanaPolicy                    = @(
                 @{
                     CortanaVoiceInvocationMode = 'WakeWordPushToTalkUserOverride'
                     Ensure                     = 'Present'
@@ -107,14 +107,14 @@
                 MaskPstnNumbersType              = 'MaskedForExternalUsers'
                 PinLength                        = 5
             }
-            EmergencyCallingPolicies         = @(
+            EmergencyCallingPolicy           = @(
                 @{
                     Ensure                     = 'Present'
                     ExternalLocationLookupMode = 'Disabled'
                     Identity                   = 'Global'
                 }
             )
-            FeedbackPolicies                 = @(
+            FeedbackPolicy                   = @(
                 @{
                     AllowEmailCollection      = $False
                     AllowLogCollection        = $False
@@ -152,7 +152,7 @@
                     UserInitiatedMode         = 'Disabled'
                 }
             )
-            FilesPolicies                    = @(
+            FilesPolicy                      = @(
                 @{
 
                     Ensure                = 'Present'
@@ -181,7 +181,7 @@
                 AllowUserEditMessage   = $False
                 GiphyRatingType        = 'Moderate'
             }
-            IPPhonePolicies                  = @(
+            IPPhonePolicy                    = @(
                 @{
                     AllowBetterTogether            = 'Enabled'
                     AllowHomeScreen                = 'EnabledUserOverride'
@@ -205,7 +205,7 @@
                 DisableAnonymousJoin        = $False
                 EnableQoS                   = $False
             }
-            MeetingPolicies                  = @(
+            MeetingPolicy                    = @(
                 @{
                     AllowAnnotations                           = $True
                     AllowAnonymousUsersToDialOut               = $False
@@ -443,7 +443,7 @@
                     WhoCanRegister                             = 'Everyone'
                 }
             )
-            MessagingPolicies                = @(
+            MessagingPolicy                  = @(
                 @{
                     AllowGiphy                    = $False
                     AllowImmersiveReader          = $True
@@ -491,7 +491,7 @@
                     ReadReceiptsEnabledType       = 'UserPreference'
                 }
             )
-            MobilityPolicies                 = @(
+            MobilityPolicy                   = @(
                 @{
                     Ensure                 = 'Present'
                     Identity               = 'Global'
@@ -507,7 +507,7 @@
                     MobileDialerPreference = 'Teams'
                 }
             )
-            NetworkRoamingPolicies           = @(
+            NetworkRoamingPolicy             = @(
                 @{
                     AllowIPVideo   = $True
                     Ensure         = 'Present'
@@ -515,7 +515,7 @@
                     MediaBitRateKb = 50000
                 }
             )
-            OnlineVoicemailPolicies          = @(
+            OnlineVoicemailPolicy            = @(
                 @{
                     EnableEditingCallAnswerRulesSetting = $True
                     EnableTranscription                 = $True
@@ -557,7 +557,7 @@
                     ShareData                           = 'Defer'
                 }
             )
-            UpdateManagementPolicies         = @(
+            UpdateManagementPolicy           = @(
                 @{
                     AllowManagedUpdates = $False
                     AllowPreview        = $False
@@ -586,7 +586,7 @@
                 IsSingleInstance = 'Yes'
                 SfBMeetingJoinUx = 'NativeLimitedClient'
             }
-            WorkloadPolicies                 = @(
+            WorkloadPolicy                   = @(
                 @{
                     AllowCalling         = $True
                     AllowCallingPinned   = $True

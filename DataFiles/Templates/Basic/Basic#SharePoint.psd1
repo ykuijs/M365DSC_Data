@@ -7,7 +7,7 @@
 @{
     NonNodeData = @{
         SharePoint = @{
-            AccessControlSettings   = @{
+            AccessControlSettings = @{
                 ConditionalAccessPolicy      = 'AllowFullAccess'
                 DisallowInfectedFileDownload = $True
                 DisplayStartASiteOption      = $False
@@ -20,12 +20,12 @@
                 IPAddressWACTokenLifetime    = 15
                 IsSingleInstance             = 'Yes'
             }
-            BrowserIdleSignout      = @{
+            BrowserIdleSignout    = @{
                 Enabled      = $True
                 SignOutAfter = '01:00:00'
                 WarnAfter    = '00:55:00'
             }
-            SharingSettings         = @{
+            SharingSettings       = @{
                 BccExternalSharingInvitations              = $False
                 DefaultLinkPermission                      = 'View'
                 DefaultSharingLinkType                     = 'Direct'
@@ -48,7 +48,7 @@
                 ShowEveryoneExceptExternalUsersClaim       = $True
                 ShowPeoplePickerSuggestionsForGuestUsers   = $False
             }
-            TenantCdnEnableds       = @(
+            TenantCdnEnabled      = @(
                 @{
                     CdnType = 'Public'
                     Enable  = $False
@@ -58,7 +58,7 @@
                     Enable  = $False
                 }
             )
-            TenantSettings          = @{
+            TenantSettings        = @{
                 ApplyAppEnforcedRestrictionsToAdHocRecipients = $True
                 CommentsOnSitePagesDisabled                   = $False
                 Ensure                                        = 'Present'

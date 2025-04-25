@@ -1,15 +1,9 @@
 ﻿@{
     NonNodeData = @{
         AzureAD = @{
-            SecurityDefaults                          = @{
-                Description      = 'Security defaults is a set of basic identity security mechanisms recommended by Microsoft. When enabled, these recommendations will be automatically enforced in your organization. Administrators and users will be better protected from common identity related attacks.'
-                DisplayName      = 'Security Defaults'
-                IsEnabled        = $False
-                IsSingleInstance = 'Yes'
-            }
-            AdministrativeUnits                       = @()
-            Applications                              = @()
-            AuthenticationMethodPolicies              = @(
+            AdministrativeUnit                       = @()
+            Application                              = @()
+            AuthenticationMethodPolicy              = @(
                 @{
                     Description                 = 'The tenant-wide policy that controls which authentication methods are allowed in the tenant, authentication method registration requirements, and self-service password reset settings'
                     DisplayName                 = 'Authentication Methods Policy'
@@ -41,7 +35,7 @@
                     }
                 }
             )
-            AuthenticationMethodPoliciesAuthenticator = @(
+            AuthenticationMethodPolicyAuthenticator = @(
                 @{
                     Ensure                = 'Present'
                     Id                    = 'MicrosoftAuthenticator'
@@ -90,7 +84,7 @@
                     }
                 }
             )
-            AuthenticationMethodPoliciesEmail         = @(
+            AuthenticationMethodPolicyEmail         = @(
                 @{
                     AllowExternalIdToUseEmailOtp = 'default'
                     Ensure                       = 'Present'
@@ -100,7 +94,7 @@
                     Excludetargets               = @()
                 }
             )
-            AuthenticationMethodPoliciesSms           = @(
+            AuthenticationMethodPolicySms           = @(
                 @{
                     Ensure         = 'Present'
                     Id             = 'Sms'
@@ -145,6 +139,12 @@
                 IsSingleInstance              = 'Yes'
                 UsageGuidelinesUrl            = ''
                 GroupCreationAllowedGroupName = 'grp-{{Forest_Code}}-rol-g-AddM365Groups'
+            }
+            SecurityDefaults                          = @{
+                Description      = 'Security defaults is a set of basic identity security mechanisms recommended by Microsoft. When enabled, these recommendations will be automatically enforced in your organization. Administrators and users will be better protected from common identity related attacks.'
+                DisplayName      = 'Security Defaults'
+                IsEnabled        = $False
+                IsSingleInstance = 'Yes'
             }
             TenantDetails                             = @{
                 IsSingleInstance                     = 'Yes'
