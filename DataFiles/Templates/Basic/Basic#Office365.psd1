@@ -1,11 +1,11 @@
 ﻿@{
     NonNodeData = @{
-        Office365          = @{
-            AdminAuditLogConfig                 = @{
+        Office365 = @{
+            AdminAuditLogConfig     = @{
                 IsSingleInstance                = 'Yes'
                 UnifiedAuditLogIngestionEnabled = 'Enabled'
             }
-            OrgCustomizationSetting             = @{
+            OrgCustomizationSetting = @{
                 Ensure           = 'Present'
                 IsSingleInstance = 'Yes'
             }

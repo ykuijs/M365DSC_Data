@@ -1,7 +1,70 @@
 ﻿@{
     NonNodeData = @{
         Exchange = @{
-            OrganizationConfig               = @{
+            AcceptedDomain        = @(
+                @{
+                    DomainType      = 'Authoritative'
+                    Ensure          = 'Present'
+                    MatchSubDomains = $false
+                    OutboundOnly    = $false
+                    Identity        = '{{TenantId}}'
+                }
+            )
+            AntiPhishPolicy       = @(
+                @{
+                    Identity                            = 'Office365 AntiPhish Default'
+                    AdminDisplayName                    = 'aa'
+                    AuthenticationFailAction            = 'MoveToJmf'
+                    Enabled                             = $true
+                    EnableFirstContactSafetyTips        = $true
+                    EnableMailboxIntelligence           = $true
+                    EnableMailboxIntelligenceProtection = $true
+                    EnableOrganizationDomainsProtection = $true
+                    EnableSimilarDomainsSafetyTips      = $true
+                    EnableSimilarUsersSafetyTips        = $true
+                    EnableSpoofIntelligence             = $true
+                    EnableTargetedDomainsProtection     = $false
+                    EnableTargetedUserProtection        = $false
+                    EnableUnauthenticatedSender         = $true
+                    EnableUnusualCharactersSafetyTips   = $true
+                    EnableViaTag                        = $true
+                    Ensure                              = 'Present'
+                    ImpersonationProtectionState        = 'Manual'
+                    MailboxIntelligenceProtectionAction = 'MoveToJmf'
+                    MailboxIntelligenceQuarantineTag    = 'DefaultFullAccessPolicy'
+                    MakeDefault                         = $true
+                    PhishThresholdLevel                 = '2'
+                    SpoofQuarantineTag                  = 'DefaultFullAccessPolicy'
+                    TargetedDomainQuarantineTag         = 'DefaultFullAccessPolicy'
+                    TargetedUserProtectionAction        = 'Quarantine'
+                    TargetedUserQuarantineTag           = 'DefaultFullAccessPolicy'
+                }
+            )
+            AtpPolicyForO365      = @{
+                AllowSafeDocsOpen       = $false
+                EnableATPForSPOTeamsODB = $true
+                EnableSafeDocs          = $true
+                Ensure                  = 'Present'
+            }
+            AuthenticationPolicy  = @(
+                @{
+                    Identity                           = 'BlockBasic637775045994108741'
+                    AllowBasicAuthActiveSync           = $false
+                    AllowBasicAuthAutodiscover         = $false
+                    AllowBasicAuthImap                 = $true
+                    AllowBasicAuthMapi                 = $false
+                    AllowBasicAuthOfflineAddressBook   = $false
+                    AllowBasicAuthOutlookService       = $true
+                    AllowBasicAuthPop                  = $true
+                    AllowBasicAuthPowerShell           = $true
+                    AllowBasicAuthReportingWebServices = $true
+                    AllowBasicAuthRpc                  = $false
+                    AllowBasicAuthSmtp                 = $true
+                    AllowBasicAuthWebServices          = $false
+                    Ensure                             = 'Present'
+                }
+            )
+            OrganizationConfig    = @{
                 ActivityBasedAuthenticationTimeoutEnabled                 = $true
                 ActivityBasedAuthenticationTimeoutInterval                = '06:00:00'
                 ActivityBasedAuthenticationTimeoutWithSingleSignOnEnabled = $true
@@ -89,25 +152,7 @@
                 WebSuggestedRepliesDisabled                               = $false
                 WorkspaceTenantEnabled                                    = $true
             }
-            AuthenticationPolicies           = @(
-                @{
-                    Identity                           = 'BlockBasic637775045994108741'
-                    AllowBasicAuthActiveSync           = $false
-                    AllowBasicAuthAutodiscover         = $false
-                    AllowBasicAuthImap                 = $true
-                    AllowBasicAuthMapi                 = $false
-                    AllowBasicAuthOfflineAddressBook   = $false
-                    AllowBasicAuthOutlookService       = $true
-                    AllowBasicAuthPop                  = $true
-                    AllowBasicAuthPowerShell           = $true
-                    AllowBasicAuthReportingWebServices = $true
-                    AllowBasicAuthRpc                  = $false
-                    AllowBasicAuthSmtp                 = $true
-                    AllowBasicAuthWebServices          = $false
-                    Ensure                             = 'Present'
-                }
-            )
-            OwaMailboxPolicies               = @(
+            OwaMailboxPolicy      = @(
                 @{
                     Name                                                 = 'OwaMailboxPolicy-Default'
                     ActionForUnknownFileAndMIMETypes                     = 'Allow'
@@ -190,47 +235,11 @@
                     WebPartsFrameOptionsType                             = 'SameOrigin'
                 }
             )
-            AntiPhishPolicies                = @(
-                @{
-                    Identity                            = 'Office365 AntiPhish Default'
-                    AdminDisplayName                    = 'aa'
-                    AuthenticationFailAction            = 'MoveToJmf'
-                    Enabled                             = $true
-                    EnableFirstContactSafetyTips        = $true
-                    EnableMailboxIntelligence           = $true
-                    EnableMailboxIntelligenceProtection = $true
-                    EnableOrganizationDomainsProtection = $true
-                    EnableSimilarDomainsSafetyTips      = $true
-                    EnableSimilarUsersSafetyTips        = $true
-                    EnableSpoofIntelligence             = $true
-                    EnableTargetedDomainsProtection     = $false
-                    EnableTargetedUserProtection        = $false
-                    EnableUnauthenticatedSender         = $true
-                    EnableUnusualCharactersSafetyTips   = $true
-                    EnableViaTag                        = $true
-                    Ensure                              = 'Present'
-                    ImpersonationProtectionState        = 'Manual'
-                    MailboxIntelligenceProtectionAction = 'MoveToJmf'
-                    MailboxIntelligenceQuarantineTag    = 'DefaultFullAccessPolicy'
-                    MakeDefault                         = $true
-                    PhishThresholdLevel                 = '2'
-                    SpoofQuarantineTag                  = 'DefaultFullAccessPolicy'
-                    TargetedDomainQuarantineTag         = 'DefaultFullAccessPolicy'
-                    TargetedUserProtectionAction        = 'Quarantine'
-                    TargetedUserQuarantineTag           = 'DefaultFullAccessPolicy'
-                }
-            )
-            AtpPolicyForO365                 = @{
-                AllowSafeDocsOpen       = $false
-                EnableATPForSPOTeamsODB = $true
-                EnableSafeDocs          = $true
-                Ensure                  = 'Present'
-            }
-            ResourceConfiguration            = @{
+            ResourceConfiguration = @{
                 Ensure                 = 'Present'
                 ResourcePropertySchema = ''
             }
-            TransportConfig                  = @{
+            TransportConfig       = @{
                 AddressBookPolicyRoutingEnabled         = $false
                 AllowLegacyTLSClients                   = $false
                 ClearCategories                         = $true
@@ -253,15 +262,6 @@
                 Rfc2231EncodingEnabled                  = $false
                 SmtpClientAuthenticationDisabled        = $true
             }
-            AcceptedDomains                  = @(
-                @{
-                    DomainType      = 'Authoritative'
-                    Ensure          = 'Present'
-                    MatchSubDomains = $false
-                    OutboundOnly    = $false
-                    Identity        = '{{TenantId}}'
-                }
-            )
         }
     }
 }

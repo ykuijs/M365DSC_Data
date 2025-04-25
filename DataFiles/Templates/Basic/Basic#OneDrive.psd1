@@ -1,6 +1,6 @@
 ﻿@{
     NonNodeData = @{
-        OneDrive           = @{
+        OneDrive = @{
             Settings = @{
                 BlockMacSync                              = $False
                 DisableReportProblemDialog                = $False
