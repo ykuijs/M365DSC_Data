@@ -30,6 +30,7 @@
                 ServicesHub        = $true            # Specifies if this workload is used in the configuration
                 SharePoint         = $true            # Specifies if this workload is used in the configuration
                 Teams              = $true            # Specifies if this workload is used in the configuration
+                Viva               = $true            # Specifies if this workload is used in the configuration
             }
             CICD             = @{
                 DependsOn     = ''                           # Specifies the name of the environment that this environment depends on during deployment. Leave empty when dependency does not exist
@@ -137,6 +138,11 @@
             }
             @{
                 Workload       = 'Teams'
+                ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
+                CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
+            }
+            @{
+                Workload       = 'Viva'
                 ApplicationId  = '<appid>'         # The AppId of the DSC app for the given operations center (should be in $DSCApp.AppId)
                 CertThumbprint = '<certThumprint>' # The thumbprint of the encryption certificate for the given operations center (should be in $DSCCertThumb)
             }
